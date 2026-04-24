@@ -1,0 +1,80 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="fw-bolder p-4 border-bottom sticky-top page-header">
+  <div class="opacity-75">Dashboard - PayTrack</div>
+</div>
+
+<div class="dashboard-content">
+  <div class="dashboard-heading mt-4">
+    <div class="content-div mx-4 my-2">
+      <h2>Dashboard</h2>
+      <span>Overview of PayTrack operations and transactions</span>
+    </div>
+    <div class="btn-div mx-5">
+      <button class="btn btn-primary mt-4 px-4" type="submit">
+        <i class="fa-solid fa-plus"></i> &nbsp;New Payment
+      </button>
+    </div>
+  </div>
+
+  <div class="container m-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-md-4">
+      <div class="col p-4 m-3 border">
+        <div
+          class="col-icon p-3 ms-1 me-3 mt-2 mb-4 text-primary-emphasis bg-primary-subtle"
+        >
+          <i class="fa-solid fa-user-group"></i>
+        </div>
+        <div class="fw-bolder">
+          <span class="fs-5">2</span> <br />
+          <p class="opacity-50 font-size">
+            Total Employees <br />
+            2 active
+          </p>
+        </div>
+      </div>
+      <div class="col p-4 m-3 border">
+        <div
+          class="col-icon p-3 ms-1 me-3 mt-2 mb-4 text-success-emphasis bg-success-subtle"
+        >
+          <i class="fa-solid fa-indian-rupee-sign"></i>
+        </div>
+        <div class="fw-bolder">
+          <span class="fs-5"> ₹2,58,501</span> <br />
+          <p class="opacity-50 font-size">
+            Monthly Payroll<br />
+            Net payable amount
+          </p>
+        </div>
+      </div>
+      <div class="col p-4 m-3 border">
+        <div
+          class="col-icon p-3 ms-1 me-3 mt-2 mb-4 text-warning-emphasis bg-warning-subtle"
+        >
+          <i class="fa-solid fa-hourglass-half"></i>
+        </div>
+        <div class="fw-bolder">
+          <span class="fs-5">0</span> <br />
+          <p class="opacity-50 font-size">
+            Pending Payments <br />
+            Awaiting processing
+          </p>
+        </div>
+      </div>
+      <div class="col p-4 m-3 border">
+        <div
+          class="col-icon p-3 ms-1 me-3 mt-2 mb-4 text-info-emphasis bg-info-subtle"
+        >
+          <i class="fa-solid fa-hourglass-half"></i>
+        </div>
+        <div class="fw-bolder">
+          <span class="fs-5">₹50,000</span> <br />
+          <p class="opacity-50 font-size">
+            Total Disbursed <br />
+            1 transactions
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

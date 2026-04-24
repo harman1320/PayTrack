@@ -1,0 +1,217 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="fw-bolder p-4 border-bottom sticky-top page-header">
+  <div class="opacity-75">Payments - PayTrack</div>
+</div>
+
+<div class="dashboard-content">
+  <div class="dashboard-heading mt-4">
+    <div class="content-div mx-4 my-2">
+      <h2>Payment Transactions</h2>
+      <span> Manage and track all employee payments</span>
+    </div>
+    <div class="mx-4 mt-4">
+        <!-- <a href="#">       -->
+        <button type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        <i class="fa-solid fa-plus"></i> &nbsp;New Payment
+      </button>
+    <!-- </a> -->
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Initiate New Payment
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <!-- Modal Body -->
+          <div class="modal-body">
+            <form method="POST" action="/payments">
+              <div class="form-division border p-3 my-3">
+                <div class="row font-size">
+                  <div class="mb-3 col-sm-6">
+                    <label for="employeeId" class="form-label"
+                      >EMPLOYEE</label
+                    >
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                      id="employeeId"
+                      name="employeeId"
+                    >
+                    <% for(let employee of employees)  {%>
+                        <option value="<%=employee._id%>" ><%=employee.name%> ( <%= employee.empID %> )</option>
+                    <% } %>
+                    </select>
+                  </div>
+                  <div class="mb-3 col-sm-6">
+                    <label for="type" class="form-label"
+                      >PAYMENT TYPE</label
+                    >
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                      id="type"
+                      name="type"
+                    >
+                      <option value="salary">Salary</option>
+                      <option value="bonus">Bonus</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row font-size">
+                  <div class="form-floating mb-3 col-sm-6">
+            <input
+              type="number"
+              class="form-control"
+              id="amount"
+              placeholder="100000"
+              name="amount"
+            />
+            <label for="amount">Amount</label>
+          </div>
+          <div class="mb-3 col-sm-6">
+                    <label for="mode" class="form-label"
+                      >MODE</label
+                    >
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                      id="mode"
+                      name="mode"
+                    >
+                      <option value="bank transfer">Bank Transfer</option>
+                      <option value="cheque">Cheque</option>
+                      <option value="cash">Cash</option>
+                    </select>
+                  </div>
+                </div>
+                  <div class="row font-size">
+                    <div class="form-floating mb-3 col-sm-6">
+                    <input
+                      type="month"
+                      class="form-control"
+                      id="date"
+                      name="date"
+                    />
+                    <label for="date">PAYMENT MONTH</label>
+                  </div>
+
+                  <div class="form-floating mb-3 col-sm-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="remarks"
+                      name="remarks"
+                    />
+                    <label for="date">REMARKS</label>
+                  </div>
+                  </div>
+              </div>
+              <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> &nbsp; &nbsp;Process Payment</button>
+            </form>
+            
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper my-4 ms-4">
+    <div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>TRANSACTION ID</th>
+        <th>EMPLOYEE</th>
+        <th>DEPARTMENT</th>
+        <th>TYPE</th>
+        <th>AMOUNT</th>
+        <th>DATE</th>
+        <th>MODE</th>
+        <th>STATUS</th>
+        <th>ACTION</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <% let i = 1; for(let payment of payments) { %>
+            <tr>
+                <td><%= i %></td>
+                <td><span class="txn-id"><%=payment.txnId%></span></td>
+
+                <td class="employee">
+                    <div class="avatar"><%= payment.employee.name[0].toUpperCase() %></div>
+                    <div>
+                        <div class="name"><%= payment.employee.name %></div>
+                        <div class="emp-id"><%= payment.employee.empID %></div>
+                    </div>
+                </td>
+                <td><span class="badge"><%= payment.employee.department %></span></td>
+                <td><span class="badge purple"><%= payment.type %></span></td>
+                <td class="amount"><%= payment.amount %></td>
+                <td><%= new Date(payment.date).toLocaleDateString("en-IN") %></td>
+                <td><%=payment.mode%></td>
+                <td>
+                    <% if(payment.employee.paymentStatus == "Paid") { %>
+                        <span class="badge text-bg-success">Completed</span>
+                    <% } else { %>
+                        <span class="badge text-bg-danger">Pending</span>
+                    <% } %>
+                </td>
+                <td>
+                    <% if(payment.employee.paymentStatus == "Pending") { %>
+                        <a href="/payments/success/<%=payment._id%>">
+                            <button class="paymentStatus-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Process Payment">
+                                    <i class="fa-solid fa-check"></i>
+                            </button>
+                        </a>
+
+                         <a href="/payments/reject/<%=payment._id%>">
+                            <button class="paymentStatus-failure" data-bs-toggle="tooltip" data-bs-placement="top"  data-bs-custom-class="custom-tooltip"
+                            data-bs-title="Decline Payment">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                         </a>
+                    <% } else { %>
+                       No need
+                    <% } %>
+                </td>
+            </tr>
+        <% i++; } %>
+    </tbody>
+  </table>
+</div>
+  </div>
+  
+</div>

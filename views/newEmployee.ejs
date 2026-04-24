@@ -1,0 +1,264 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="fw-bolder p-4 border-bottom sticky-top page-header">
+  <div class="opacity-75">Add Employee - PayTrack</div>
+</div>
+
+<div class="dashboard-content pb-5">
+  <div class="dashboard-heading mt-4">
+    <div class="content-div mx-4 my-2">
+      <h2>Add New Employee</h2>
+      <span>Fill in the details to onboard a new employee</span>
+    </div>
+    <div class="btn-div mx-5">
+      <a href="/employees">
+        <button class="btn btn-primary mt-4 px-4" type="submit">
+          <i class="fa-solid fa-arrow-left"></i> &nbsp;Back
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <form method="POST" action="/employees/new">
+    <div class="p-3">
+      <div class="form-division border p-3 my-3">
+        <h5 class="border-bottom pb-3 px-3 mb-3">
+          <span
+            class="text-primary-emphasis bg-primary-subtle p-1 ps-2 border-radius fs-6"
+            ><i class="fa-solid fa-address-card"></i> </span
+          >&nbsp; &nbsp;Personal Information
+        </h5>
+        <div class="row font-size">
+          <div class="form-floating mb-3 col-sm-5">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              placeholder="EMP102"
+              name="empID"
+            />
+            <label for="floatingInput">Employee ID</label>
+          </div>
+          <div class="form-floating col-sm-5">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingPassword"
+              placeholder="Rahul Sharma"
+              name="name"
+            />
+            <label for="floatingPassword">Name</label>
+          </div>
+        </div>
+
+        <div class="row font-size my-3">
+          <div class="form-floating mb-3 col-sm-5">
+            <input
+              type="email"
+              class="form-control"
+              id="floatingInput"
+              placeholder="example@gmail.com"
+              name="email"
+            />
+            <label for="floatingInput">Email</label>
+          </div>
+          <div class="form-floating col-sm-5">
+            <input
+              type="number"
+              class="form-control"
+              id="floatingPassword"
+              placeholder="9871829213"
+              name="phoneNumber"
+            />
+            <label for="floatingPassword">Phone Number</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Employment Details -->
+      <div class="form-division border p-3 my-3">
+        <h5 class="border-bottom pb-3 px-3 mb-3">
+          <span
+            class="text-primary-emphasis bg-primary-subtle p-1 ps-2 border-radius fs-6"
+            ><i class="fa-solid fa-briefcase"></i> </span
+          >&nbsp; &nbsp;Employment Details
+        </h5>
+        <div class="row font-size">
+          <div class="mb-3 col-sm-5">
+            <label for="department" class="form-label">Department</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              id="department"
+              name="department"
+            >
+              <option value="Engineering" selected>Engineering</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Sales">Sales</option>
+              <option value="Finance">Finance</option>
+              <option value="Design">Design</option>
+              <option value="Operation">Operation</option>
+            </select>
+          </div>
+          <div class="form-floating col-sm-5">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingPassword"
+              placeholder="e.g Senior Software Engineer"
+              name="designation"
+            />
+            <label for="floatingPassword">Designation</label>
+          </div>
+        </div>
+        <div class="row font-size">
+          <div class="mb-3 col-sm-5">
+            <label for="employmentType" class="form-label"
+              >Employment Type</label
+            >
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              id="employmentType"
+              name="employmentType"
+            >
+              <option value="Full-Time" selected>Full-Time</option>
+              <option value="Part-Time">Part-Time</option>
+              <option value="Intern">Intern</option>
+            </select>
+          </div>
+          <div class="form-floating mb-3 col-sm-5">
+            <input
+              type="date"
+              class="form-control"
+              id="joiningDate"
+              placeholder="HD101"
+              name="joiningDate"
+            />
+            <label for="joiningDate">Joining Date</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-division border p-3 my-3">
+        <h5 class="border-bottom pb-3 px-3 mb-3">
+          <span
+            class="text-primary-emphasis bg-primary-subtle p-1 ps-2 border-radius fs-6"
+            ><i class="fa-solid fa-indian-rupee-sign"></i> </span
+          >&nbsp; &nbsp;Salary Structure
+        </h5>
+        <div class="row font-size">
+          <div class="form-floating mb-3 col-sm-4">
+            <input
+              type="number"
+              class="form-control"
+              id="floatingInput"
+              placeholder="100000"
+              name="baseSalary"
+            />
+            <label for="floatingInput">Base Salary</label>
+          </div>
+          <div class="form-floating col-sm-4">
+            <input
+              type="number"
+              class="form-control"
+              id="floatingPassword"
+              placeholder="2000"
+              name="HRA"
+            />
+            <label for="floatingPassword">HRA</label>
+          </div>
+          <div class="form-floating mb-3 col-sm-4">
+            <input
+              type="number"
+              class="form-control"
+              id="floatingInput"
+              placeholder="HD101"
+              name="allowances"
+            />
+            <label for="floatingInput">Allowances</label>
+          </div>
+        </div>
+
+        <div class="row font-size">
+          <div class="form-floating mb-3 col-sm-4">
+            <input
+              type="number"
+              class="form-control"
+              id="floatingInput"
+              placeholder="1000"
+              name="pfDeduction"
+            />
+            <label for="floatingInput">PF Deduction</label>
+          </div>
+          <div class="form-floating col-sm-4">
+            <input
+              type="number"
+              class="form-control"
+              id="floatingPassword"
+              placeholder="2000"
+              name="taxDeduction"
+            />
+            <label for="floatingPassword">Tax Deduction</label>
+          </div>
+          <div class="form-floating mb-3 col-sm-4">
+            <p>Net Salary:</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-division border p-3 my-3">
+        <h5 class="border-bottom pb-3 px-3 mb-3">
+          <span
+            class="text-primary-emphasis bg-primary-subtle p-1 ps-2 border-radius fs-6"
+            ><i class="fa-solid fa-building-columns"></i> </span
+          >&nbsp; &nbsp;Bank Details
+        </h5>
+        <div class="row font-size">
+          <div class="form-floating mb-3 col-sm-4">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              placeholder="HDFC"
+              name="bankName"
+            />
+            <label for="floatingInput">Bank Name</label>
+          </div>
+          <div class="form-floating col-sm-4">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingPassword"
+              placeholder="1652576212878"
+              name="accountNumber"
+            />
+            <label for="floatingPassword">Account Number</label>
+          </div>
+          <div class="form-floating mb-3 col-sm-4">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              placeholder="HD101"
+              name="IFSC"
+            />
+            <label for="floatingInput">IFSC</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-div mx-5">
+          <button class="btn btn-primary mt-4 px-4" type="submit">
+            <i class="fa-solid fa-user-plus"></i> &nbsp;Add Employee
+          </button>
+      </div>
+    </div>
+  </form>
+
+  <a class="text-decoration ms-5 px-3" href="/employees">
+    <button class="btn btn-primary mt-4 px-4" type="submit">
+      <i class="fa-regular fa-circle-xmark"></i> &nbsp;Cancel
+    </button>
+  </a>
+</div>

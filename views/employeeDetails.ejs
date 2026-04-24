@@ -1,0 +1,138 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="fw-bolder p-4 border-bottom sticky-top page-header">
+  <div class="opacity-75"><%=employee.name%> - PayTrack</div>
+</div>
+
+<div class="dashboard-content">
+  <div class="dashboard-heading mt-4">
+    <div class="content-div mx-4 my-2">
+      <h2>Employee Profile</h2>
+      <span> Detailed information for <%= employee.name%></span>
+    </div>
+    <div class="mx-4 mt-4">
+      <a href="/employees/edit/<%=employee._id%>" class="me-2"
+        ><button class="btn">
+          <i class="fa-solid fa-pen-to-square"></i> &nbsp;Edit
+        </button></a
+      >
+      <!-- <form action="/employees/edit/<%=employee._id%>"> <button class="btn">
+          <i class="fa-solid fa-pen-to-square"></i> &nbsp;Edit
+        </button></form> -->
+      <a href="/employees"
+        ><button class="btn">
+          <i class="fa-solid fa-arrow-left"></i> &nbsp;Back
+        </button></a
+      >
+    </div>
+  </div>
+
+  <div class="emp-details">
+    <div class="emp-left bg-white border border-radius m-3 p-3">
+      <div class="emp-logo"><%= employee.name[0].toUpperCase() %></div>
+      <p class="fw-bolder"><%=employee.name%></p>
+      <div class="border-bottom pb-4 mb-2">
+        <span class="badge text-bg-secondary"><%=employee.department %></span>
+        <span class="badge text-bg-success ms-4">Active</span>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <span class="fw-bolder"><%=employee.empID%></span>
+          <br />
+          <spam class="fw-lighter font-size">Employee ID</spam>
+        </div>
+        <div class="col">
+          <span class="fw-bolder"><%=employee.employmentType%></span>
+          <br />
+          <spam class="fw-lighter font-size">Type</spam>
+        </div>
+      </div>
+
+      <div class="text-start font-size mt-3 mx-3">
+        <div>
+          <i class="fa-solid fa-envelope"></i> &nbsp; &nbsp; <%= employee.email
+          %>
+        </div>
+        <div>
+          <i class="fa-solid fa-phone"></i> &nbsp; &nbsp; <%=
+          employee.phoneNumber %>
+        </div>
+        <div>
+          <i class="fa-solid fa-calendar-days"></i> &nbsp; &nbsp; <%= new
+          Date(employee.joiningDate).toLocaleDateString() %>
+        </div>
+      </div>
+    </div>
+
+    <div class="emp-right m-3">
+      <div class="salary bg-white border border-radius">
+        <h5 class="p-4 border-bottom">&#8377; &nbsp; Salary Breakdown</h5>
+        <div class="row text-center border-bottom p-2 m-2">
+          <div class="col border-end">
+            <div class="fw-light">BASE SALARY</div>
+            <div>&#8377; <%=employee.baseSalary %></div>
+          </div>
+          <div class="col border-end">
+            <div class="fw-light">HRA</div>
+            <div>&#8377; <%=employee.HRA %></div>
+          </div>
+          <div class="col">
+            <div class="fw-light">Allowances</div>
+            <div>&#8377; <%=employee.allowances %></div>
+          </div>
+        </div>
+
+        <div class="row text-center border-bottom p-2 m-2">
+          <div class="col border-end">
+            <div class="fw-light">GROSS SALARY</div>
+            <div>
+              &#8377; <%=Number(employee.baseSalary) + Number(employee.HRA) +
+              Number(employee.allowances) %>
+            </div>
+          </div>
+          <div class="col border-end">
+            <div class="fw-light">PF DEDUCTION</div>
+            <div class="text-danger">-&#8377; <%=employee.pfDeduction %></div>
+          </div>
+          <div class="col">
+            <div class="fw-light">TAX DEDUCTION</div>
+            <div class="text-danger">-&#8377; <%=employee.taxDeduction %></div>
+          </div>
+        </div>
+
+        <div class="row text-center p-2 m-2">
+          <div class="col">
+            <div class="fw-light">NET SALARY</div>
+            <div class="text-primary fw-bolder">
+              &#8377; <%=employee.netSalary %>
+            </div>
+          </div>
+          <div class="col"></div>
+          <div class="col"></div>
+        </div>
+      </div>
+
+      <div class="bank-details bg-white border border-radius mt-3">
+        <h5 class="p-4 border-bottom">
+          <i class="fa-solid fa-building-columns"></i> &nbsp; Salary Breakdown
+        </h5>
+
+        <div class="row text-center p-2 m-2">
+          <div class="col border-end">
+            <div class="fw-light">BANK NAME</div>
+            <div class="fw-bolder"><%=employee.bankName %></div>
+          </div>
+          <div class="col border-end">
+            <div class="fw-light">ACCOUNT NUMBER</div>
+            <div class="text-danger"><%=employee.accountNumber %></div>
+          </div>
+          <div class="col">
+            <div class="fw-light">IFSC CODE</div>
+            <div class="text-danger"><%=employee.IFSC %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="fw-bolder p-4 border-bottom sticky-top page-header">
+  <div class="opacity-75">Employees - PayTrack</div>
+</div>
+
+<div class="dashboard-content">
+  <div class="dashboard-heading mt-4">
+    <div class="content-div mx-4 my-2">
+      <h2>Employees</h2>
+      <span><%= employees.length %> employees total</span>
+    </div>
+    <div class="btn-div mx-5">
+      <a href="/employees/new">
+        <button class="btn btn-primary mt-4 px-4" type="submit">
+          <i class="fa-solid fa-user-plus"></i> &nbsp;Add Employee
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- CARDS -->
+  <div class="cards-container mt-4">
+    <% for (let employee of employees) {%>
+      <div class="card border m-2">
+      <div class="card-top">
+        <div class="profile-logo p-2 ms-3 my-3"><%= employee.name[0] %></div>
+        <div class="top-icons me-3 my-3">
+
+          <a href="/employees/details/<%=employee.empID%>"  class="text-decoration">
+            <div class="icons-hv">
+              <i class="fa-regular fa-eye font-size"></i>
+            </div>
+          </a>
+
+          <a href="/employees/edit/<%=employee._id%>" class="text-decoration">
+            <div class="icons-hv"><i class="fa-solid fa-pencil font-size"></i></div>
+          </a>
+          <form method="POST" action="/employees/delete/<%=employee._id%>?_method=DELETE" id="delete-form">
+            <button class="icons-hv del-btn">
+            <i class="fa-solid fa-trash-can text-danger font-size"></i>
+            </button>
+          </form>
+
+        </div>
+      </div>
+
+      <div class="card-mid p-4">
+        <p>
+          <span class="fw-bold"><%=employee.name%></span>
+          <br />
+          <span class="opacity-50"><%=employee.empID%></span>
+          <br />
+          <span class="opacity-75 font-size"><%=employee.designation%></span>
+        </p>
+        <div class="opacity-75 mt-0">
+          <span class="badge text-bg-secondary fw-normal"><%=employee.department%></span>
+          <span class="badge text-bg-success fw-normal">Active</span>
+        </div>
+      </div>
+
+      <div class="card-btm py-3 border-top">
+        <div class="div">
+          <span class="font-size opacity-75">NET SALARY</span>&nbsp;
+          <span class="fw-bold text-primary">&#8377; <%=employee.netSalary%></span>
+        </div>
+        <div class="div">
+          <button class="btn btn-primary" type="submit">
+            <i class="fa-solid fa-paper-plane"></i> &nbsp;Pay
+          </button>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>

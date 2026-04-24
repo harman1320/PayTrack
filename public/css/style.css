@@ -1,0 +1,387 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.cont {
+    display: flex;
+}
+
+.navbar {
+    height: 100vh;
+    width: 235px;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    align-content: start;
+    background-color: #0f172a;
+    color: #fff;
+}
+
+.nav-logo .nav-logo-icon {
+    color: #4f46e5;
+    box-shadow: 1px 1px 5px #544cee;
+}
+
+.nav-logo .nav-logo-icon:hover {
+    color: #655df2;
+    box-shadow: 1px 1px 5px #6962ef;
+}
+
+.navbar div {
+    width: 100%;
+}
+
+.navbar-middle a{
+    display: block;
+}
+
+.navbar-middle {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-middle a {
+    padding: 0.8rem !important;
+    margin: 0.5rem;
+}
+
+.navbar-middle a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0.3rem;
+    color: #fff;
+}
+
+.rm-def-style {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-foot {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-foot .icon{
+    width: 20%;
+}
+
+.nav-foot .txt {
+    flex: 1;
+}
+
+.dynamic-div {
+    height: 100vh;
+    flex: 1;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow:auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* DASHBOARD */
+.dashboard-content {
+    background-color: #EEF1F5;
+}
+
+.page-header {
+    background-color: white !important;
+}
+
+.btn {
+    background-color: #4f46e5 !important;
+    color: white;
+    outline: 4px solid transparent !important;
+}
+
+.btn:hover {
+    background-color: #423bbf !important;
+    outline: 4px solid rgba(126, 120, 239, 0.4) !important;
+    cursor: pointer;
+    color: white;
+    cursor: pointer;
+}
+.dashboard-heading {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+.dashboard-heading .content-div {
+    flex: 1;
+}
+
+.font-size {
+    font-size: 0.8rem;
+}
+
+.container .col {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    background-color: white !important;
+    border-radius: 0.6rem;
+    box-shadow: 1px 1px 4px #d9dbdf;
+}
+
+.container .col:hover {
+    box-shadow : 3px 3px 5px #d9dbdf;
+}
+
+.col-icon {
+    border-radius: 0.5rem;
+}
+
+/* Employee Page */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.card {
+    height: fit-content;
+    width: 300px;
+    border-radius: 0.8rem;
+    box-shadow: 1px 1px 4px #d9dbdf;
+}
+
+.card:hover {
+    box-shadow: 2px 2px 6px #b1b2b4;
+}
+
+.card-top {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #5f5cf0, #7c3aed);
+    border-radius: 0.8rem 0.8rem 0 0 ;
+}
+
+.profile-logo {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    outline: 3px solid #9e9af8;
+    text-align: center;
+    background-color: #645dee;
+    color: white;
+    font-weight: 800;
+}
+
+.top-icons {
+    display: flex;
+}
+
+.top-icons div, .card-top .del-btn {
+    height: 1.7rem;
+    width: 1.7rem;
+    border: 0.05rem solid rgba(255, 255, 255, 0.5);
+    text-align: center;
+    margin-right: 0.4rem;
+    border-radius: 0.2rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    opacity: 0.9;
+}
+
+.top-icons .icons-hv:hover {
+    box-shadow: 2px 2px 4px #9e9af8;
+    opacity: 1;
+}
+
+.card-btm {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.border-radius {
+    border-radius: 0.4rem !important;
+}
+
+.form-division {
+    background-color: white;
+    border-radius: 0.4rem;
+}
+
+.text-decoration {
+    text-decoration : none !important; 
+    color: inherit !important;
+}
+
+/* Employee Details */
+.emp-details {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.emp-left {
+    width: 22rem;
+    height: fit-content;
+    box-shadow: 1px 1px 4px #d9dbdf;
+    text-align: center !important;
+}   
+.emp-right {
+    flex: 1;
+}
+
+.salary {
+    box-shadow: 1px 1px 4px #d9dbdf;
+}
+
+.bank-details {
+    box-shadow: 1px 1px 4px #d9dbdf;
+}
+
+.emp-logo {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #5f5cf0, #7c3aed);
+    padding: 1rem;
+    color: white;
+    font-weight: 800;
+    display: inline-block;
+}
+
+/* Payments */
+.wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+   width: 95%;
+  max-width: 100%;
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  padding: 1rem;
+}
+
+/* Table */
+table {
+  width: 1200px;
+  border-collapse: collapse;
+}
+
+thead {
+  color: #6b7280;
+  font-size: 13px;
+  text-align: left;
+}
+
+th {
+  padding: 15px;
+  font-weight: 600;
+}
+
+td {
+  padding: 18px 15px;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+  color: #374151;
+}
+
+/* Transaction ID */
+.txn-id {
+  background: #eef2ff;
+  color: #4f46e5;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* Employee */
+.employee {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.emp-id {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Badges */
+.badge {
+  background: #b2bbc3;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.badge.purple {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+/* Amount */
+.amount {
+  font-weight: 700;
+  color: #111827;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  white-space: nowrap; 
+}
+
+.paymentStatus-success {
+    height: 32px;
+    width: 32px;
+    background-color: rgba(178, 238, 178, 0.5);
+    color: rgb(4, 130, 4);
+    font-weight: 800;
+    border: 1.5px solid rgb(4, 130, 4);
+    border-radius: 5px;
+    font-size: 12px;
+    margin-right: 0.6rem;
+}
+
+.paymentStatus-failure {
+    height: 32px;
+    width: 32px;
+    background-color: rgba(244, 159, 187, 0.5);
+    color: rgb(128, 0, 43);
+    font-weight: 800;
+    border: 1.5px solid rgb(128, 0, 43);
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.paymentStatus-success:hover {
+    box-shadow: 1.5px 1.5px 4px rgba(4, 130, 4, 0.5);
+}
+
+.paymentStatus-failure:hover {
+    box-shadow: 1.5px 1.5px 4px rgba(121, 3, 42, 0.5);
+    cursor: pointer;
+}

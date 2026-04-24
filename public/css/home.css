@@ -1,0 +1,105 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Lato", sans-serif !important;
+}
+
+.cont {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+.bg-text {
+    height: inherit;
+    width: 60%;
+    background: linear-gradient(135deg, #0f172a, #1e1b4b, #312e81, #4338ca);
+    color: white;
+}
+
+.bg-text::before {
+  background: radial-gradient(circle, rgba(99,102,241,0.4), transparent);
+  filter: blur(100px);
+}
+
+.signin-div {
+    height: inherit;
+    width: 40%;
+    background-color: #fff;
+    padding: 5rem 4rem;
+
+}
+
+.content {
+    margin: 100px auto;
+    width: 70%;
+}
+
+.logo {
+    font-size: 2.2rem;
+}
+
+.logo i {
+    color: #ccc9ff;
+}
+
+.logo span {
+    margin-left: 3rem;
+}
+
+.content h1 {
+    font-weight: 800;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.logo-footer {
+    margin-top: 2.2rem;
+}
+
+.logo-footer p i {
+    color: #8780ff;
+}
+
+.form {
+    font-size: 12.5px;
+}
+
+.btn {
+    background-color: #4f46e5 !important;
+    color: white;
+    outline: 4px solid transparent !important;
+}
+
+.btn:hover {
+    background-color: #423bbf !important;
+    outline: 4px solid rgba(126, 120, 239, 0.4) !important;
+    cursor: pointer;
+}
+
+/* Media Queries */
+@media (max-width: 700px) {
+    .bg-text {
+        width: 40%;
+    }
+
+    .signin-div {
+        width: 60%;
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        display : block;
+    }
+
+    .bg-text {
+        display: none;
+    }
+
+    .signin-div {
+        width: 100%;
+        height: fit-content;
+    }
+    
+}
