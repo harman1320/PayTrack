@@ -8,13 +8,15 @@ body {
     height: 100vh;
     width: 100vw;
     display: flex;
+    overflow: hidden;
 }
 
 .bg-text {
-    height: inherit;
+    height: 100vh;
     width: 60%;
     background: linear-gradient(135deg, #0f172a, #1e1b4b, #312e81, #4338ca);
     color: white;
+    overflow: hidden;
 }
 
 .bg-text::before {
@@ -27,7 +29,7 @@ body {
     width: 40%;
     background-color: #fff;
     padding: 5rem 4rem;
-
+    overflow-y: auto;
 }
 
 .content {

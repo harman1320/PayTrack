@@ -50,6 +50,10 @@ async function main() {
   await mongoose.connect(dbUrl);
 }
 
+app.get("/", (req, res) => {
+  res.render("signup.ejs");
+});
+
 app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
 app.use("/logout", logoutRouter);
