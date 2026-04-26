@@ -60,13 +60,6 @@ const employeeSchema = mongoose.Schema({
   IFSC: {
     type: String,
   },
-  paymentStatus: {
-    type: String,
-    default: "Pending",
-  },
-  paymentDate: {
-    type: Date,
-  },
 });
 
 const Employee = mongoose.model("Employee", employeeSchema);

@@ -11,9 +11,11 @@
       <span>Overview of PayTrack operations and transactions</span>
     </div>
     <div class="btn-div mx-5">
-      <button class="btn btn-primary mt-4 px-4" type="submit">
-        <i class="fa-solid fa-plus"></i> &nbsp;New Payment
-      </button>
+      <a href="/payments" class="text-decoration"
+        ><button class="btn btn-primary mt-4 px-4" type="submit">
+          <i class="fa-solid fa-plus"></i> &nbsp;New Payment
+        </button></a
+      >
     </div>
   </div>
 
@@ -26,11 +28,8 @@
           <i class="fa-solid fa-user-group"></i>
         </div>
         <div class="fw-bolder">
-          <span class="fs-5">2</span> <br />
-          <p class="opacity-50 font-size">
-            Total Employees <br />
-            2 active
-          </p>
+          <span class="fs-5"><%= info.totalEmployees %></span> <br />
+          <p class="opacity-50 font-size">Total Employees</p>
         </div>
       </div>
       <div class="col p-4 m-3 border">
@@ -40,7 +39,7 @@
           <i class="fa-solid fa-indian-rupee-sign"></i>
         </div>
         <div class="fw-bolder">
-          <span class="fs-5"> ₹2,58,501</span> <br />
+          <span class="fs-5"><%= info.totalMonthlyPayment%></span> <br />
           <p class="opacity-50 font-size">
             Monthly Payroll<br />
             Net payable amount
@@ -54,7 +53,7 @@
           <i class="fa-solid fa-hourglass-half"></i>
         </div>
         <div class="fw-bolder">
-          <span class="fs-5">0</span> <br />
+          <span class="fs-5"><%= info.totalPendingPayments %></span> <br />
           <p class="opacity-50 font-size">
             Pending Payments <br />
             Awaiting processing
@@ -68,13 +67,68 @@
           <i class="fa-solid fa-hourglass-half"></i>
         </div>
         <div class="fw-bolder">
-          <span class="fs-5">₹50,000</span> <br />
+          <span class="fs-5"><%= info.paidPayments %></span> <br />
           <p class="opacity-50 font-size">
             Total Disbursed <br />
-            1 transactions
+            <%= info.totalPaidPayments %> transactions
           </p>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="wrapper my-4 ms-4">
+    <div class="table-container">
+      <div class="row p-3 border-bottom">
+        <h5 class="col-10"><i class="fa-solid fa-money-check-dollar"></i> &nbsp;Recent Transactions</h5>
+        <div class="col-2">
+          <a href="/payments">View All &nbsp; <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>TRANSACTION ID</th>
+        <th>EMPLOYEE</th>
+        <th>TYPE</th>
+        <th>AMOUNT</th>
+        <th>DATE</th>
+        <th>STATUS</th>
+      </tr>
+    </thead>
+
+      <tbody>
+        <% for(let i=0;  i < payments.length && i<5; i++) { %>
+            <tr>
+                <td><%= i+1 %></td>
+                <td><span class="txn-id"><%=payments[i].txnId%></span></td>
+
+                <% if(payments[i].employee) { %>
+                  <td class="employee">
+                    <div class="avatar"><%= payments[i].employee.name[0].toUpperCase() %></div>
+                    <div>
+                        <div class="name"><%= payments[i].employee.name %></div>
+                    </div>
+                </td>
+                <% } %>
+                <td><span class="badge purple"><%= payments[i].type %></span></td>
+                <td class="amount"><%= payments[i].amount %></td>
+                <td><%= new Date(payments[i].date).toLocaleDateString("en-IN") %></td>
+                <td>
+                    <% if(payments[i].paymentStatus == "Paid") { %>
+                        <span class="badge text-bg-success">Completed</span>
+                    <% } else { %>
+                        <span class="badge text-bg-danger">Pending</span>
+                    <% } %>
+                </td>
+                
+            </tr>
+        <% } %>
+    </tbody>
+  </table>
+</div>
   </div>
 </div>

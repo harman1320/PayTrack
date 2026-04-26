@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PayTrack</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="/css/home.css" />
+  </head>
+  <body>
+    <div class="cont">
+      <div class="bg-text">
+        <div class="content">
+          <div class="logo">
+            <i class="fa-solid fa-money-bill-transfer"></i>
+            <span>PayTrack</span>
+          </div>
+          <h1 class="mt-3">Streamline Employee Payment Management</h1>
+          <p class="opacity-50">
+            One unified platform for payroll, transactions, and financial
+            reporting — built for modern HR teams.
+          </p>
+
+          <div class="logo-footer opacity-75">
+            <p class="ms-4 fw-semibold">Secure &amp; Complaint</p>
+            <p><i class="fa-solid fa-bolt"></i> &nbsp; Real-time processing</p>
+            <p>
+              <i class="fa-solid fa-chart-line"></i> &nbsp; Analytics Dashboard
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="signin-div">
+        <h2 class="fw-bold">Welcome</h2>
+        <p class="text-secondary">Create your PayTrackPro Account</p>
+
+        <form
+          class="text-secondary mt-5 form needs-validation"
+          action="/signup"
+          method="POST"
+          novalidate
+        >
+          <div class="mb-4 mt-4 pt-3">
+            <label for="name" class="form-label text-uppercase"
+              ><i class="fa-solid fa-circle-user"></i> &nbsp; Name</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              required
+            />
+          </div>
+          <div class="mb-4 mt-4 pt-3">
+            <label for="email" class="form-label text-uppercase"
+              ><i class="fa-solid fa-envelope"></i> &nbsp; Email address</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="name@example.com"
+              name="email"
+              required
+            />
+          </div>
+          <div class="mb-4 mt-4 pt-3">
+            <label for="password" class="form-label text-uppercase"
+              ><i class="fa-solid fa-lock"></i> &nbsp; Password</label
+            >
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              aria-describedby="passwordHelpBlock"
+              placeholder="********"
+              name="password"
+              required
+            />
+          </div>
+          <div class="mb-4 mt-4 pt-3">
+            <label for="role" class="form-label text-uppercase"
+              ><i class="fa-brands fa-audible"></i> &nbsp; Role</label
+            >
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              id="role"
+              name="role"
+            >
+              <option value="admin" selected>ADMIN</option>
+              <option value="hr">HR</option>
+            </select>
+          </div>
+          <div class="d-grid gap-2 mt-4 pt-4">
+            <button class="btn btn-primary" type="submit">SIGNUP</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false,
+          );
+        });
+      })();
+    </script>
+  </body>
+</html>

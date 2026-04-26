@@ -45,7 +45,7 @@
           </div>
           <!-- Modal Body -->
           <div class="modal-body">
-            <form method="POST" action="/payments">
+            <form method="POST" action="/payments" class="needs-validation" novalidate>
               <div class="form-division border p-3 my-3">
                 <div class="row font-size">
                   <div class="mb-3 col-sm-6">
@@ -57,6 +57,7 @@
                       aria-label="Default select example"
                       id="employeeId"
                       name="employeeId"
+                      required
                     >
                     <% for(let employee of employees)  {%>
                         <option value="<%=employee._id%>" ><%=employee.name%> ( <%= employee.empID %> )</option>
@@ -72,6 +73,7 @@
                       aria-label="Default select example"
                       id="type"
                       name="type"
+                      required
                     >
                       <option value="salary">Salary</option>
                       <option value="bonus">Bonus</option>
@@ -86,6 +88,7 @@
               id="amount"
               placeholder="100000"
               name="amount"
+              required
             />
             <label for="amount">Amount</label>
           </div>
@@ -98,6 +101,7 @@
                       aria-label="Default select example"
                       id="mode"
                       name="mode"
+                      required
                     >
                       <option value="bank transfer">Bank Transfer</option>
                       <option value="cheque">Cheque</option>
@@ -112,6 +116,7 @@
                       class="form-control"
                       id="date"
                       name="date"
+                      required
                     />
                     <label for="date">PAYMENT MONTH</label>
                   </div>
@@ -163,14 +168,15 @@
       </tr>
     </thead>
 
-    <tbody>
+      <tbody>
         <% let i = 1; for(let payment of payments) { %>
             <tr>
                 <td><%= i %></td>
                 <td><span class="txn-id"><%=payment.txnId%></span></td>
 
-                <td class="employee">
-                    <div class="avatar"><%= payment.employee.name[0].toUpperCase() %></div>
+                <% if (payment.employee) { %>
+                    <td class="employee">
+                    <div class="avatar"><%= payment.employee.name[0] %></div>
                     <div>
                         <div class="name"><%= payment.employee.name %></div>
                         <div class="emp-id"><%= payment.employee.empID %></div>
@@ -179,17 +185,18 @@
                 <td><span class="badge"><%= payment.employee.department %></span></td>
                 <td><span class="badge purple"><%= payment.type %></span></td>
                 <td class="amount"><%= payment.amount %></td>
+                <% } %>
                 <td><%= new Date(payment.date).toLocaleDateString("en-IN") %></td>
                 <td><%=payment.mode%></td>
                 <td>
-                    <% if(payment.employee.paymentStatus == "Paid") { %>
+                    <% if(payment.paymentStatus == "Paid") { %>
                         <span class="badge text-bg-success">Completed</span>
                     <% } else { %>
                         <span class="badge text-bg-danger">Pending</span>
                     <% } %>
                 </td>
                 <td>
-                    <% if(payment.employee.paymentStatus == "Pending") { %>
+                    <% if(payment.paymentStatus == "Pending") { %>
                         <a href="/payments/success/<%=payment._id%>">
                             <button class="paymentStatus-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                                 data-bs-title="Process Payment">

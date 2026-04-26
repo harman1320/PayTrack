@@ -19,7 +19,12 @@
     </div>
   </div>
 
-  <form method="POST" action="/employees/edit/<%=employee._id%>?_method=PUT">
+  <form
+    method="POST"
+    action="/employees/edit/<%=employee._id%>?_method=PUT"
+    class="needs-validation"
+    novalidate
+  >
     <div class="p-3">
       <div class="form-division border p-3 my-3">
         <h5 class="border-bottom pb-3 px-3 mb-3">
@@ -37,6 +42,7 @@
               placeholder="EMP102"
               name="empID"
               value="<%=employee.empID%>"
+              required
             />
             <label for="floatingInput">Employee ID</label>
           </div>
@@ -48,6 +54,7 @@
               placeholder="Rahul Sharma"
               name="name"
               value="<%=employee.name%>"
+              required
             />
             <label for="floatingPassword">Name</label>
           </div>
@@ -62,6 +69,7 @@
               placeholder="example@gmail.com"
               name="email"
               value="<%=employee.email%>"
+              required
             />
             <label for="floatingInput">Email</label>
           </div>
@@ -73,6 +81,7 @@
               placeholder="9871829213"
               name="phoneNumber"
               value="<%=employee.phoneNumber%>"
+              required
             />
             <label for="floatingPassword">Phone Number</label>
           </div>
@@ -96,6 +105,7 @@
               id="department"
               name="department"
               value="<%=employee.department%>"
+              required
             >
               <option value="Engineering" selected>Engineering</option>
               <option value="Marketing">Marketing</option>
@@ -113,6 +123,7 @@
               placeholder="e.g Senior Software Engineer"
               name="designation"
               value="<%=employee.designation%>"
+              required
             />
             <label for="floatingPassword">Designation</label>
           </div>
@@ -128,6 +139,7 @@
               id="employmentType"
               name="employmentType"
               value="<%=employee.empolymentType%>"
+              required
             >
               <option value="Full-Time" selected>Full-Time</option>
               <option value="Part-Time">Part-Time</option>
@@ -142,6 +154,7 @@
               placeholder="HD101"
               name="joiningDate"
               value="<%=employee.joiningDate%>"
+              required
             />
             <label for="joiningDate">Joining Date</label>
           </div>
@@ -164,6 +177,7 @@
               placeholder="100000"
               name="baseSalary"
               value="<%=employee.baseSalary%>"
+              required
             />
             <label for="floatingInput">Base Salary</label>
           </div>
@@ -214,9 +228,9 @@
             />
             <label for="floatingPassword">Tax Deduction</label>
           </div>
-          <div class="form-floating mb-3 col-sm-4">
+          <!-- <div class="form-floating mb-3 col-sm-4">
             <p>Net Salary:</p>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -236,6 +250,7 @@
               placeholder="HDFC"
               name="bankName"
               value="<%=employee.bankName%>"
+              required
             />
             <label for="floatingInput">Bank Name</label>
           </div>
@@ -247,6 +262,7 @@
               placeholder="1652576212878"
               name="accountNumber"
               value="<%=employee.accountNumber%>"
+              required
             />
             <label for="floatingPassword">Account Number</label>
           </div>
@@ -258,6 +274,7 @@
               placeholder="HD101"
               name="IFSC"
               value="<%=employee.IFSC%>"
+              required
             />
             <label for="floatingInput">IFSC</label>
           </div>

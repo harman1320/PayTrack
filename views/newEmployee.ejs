@@ -19,7 +19,12 @@
     </div>
   </div>
 
-  <form method="POST" action="/employees/new">
+  <form
+    method="POST"
+    action="/employees/new"
+    class="needs-validation"
+    novalidate
+  >
     <div class="p-3">
       <div class="form-division border p-3 my-3">
         <h5 class="border-bottom pb-3 px-3 mb-3">
@@ -36,6 +41,7 @@
               id="floatingInput"
               placeholder="EMP102"
               name="empID"
+              required
             />
             <label for="floatingInput">Employee ID</label>
           </div>
@@ -46,6 +52,7 @@
               id="floatingPassword"
               placeholder="Rahul Sharma"
               name="name"
+              required
             />
             <label for="floatingPassword">Name</label>
           </div>
@@ -59,6 +66,7 @@
               id="floatingInput"
               placeholder="example@gmail.com"
               name="email"
+              required
             />
             <label for="floatingInput">Email</label>
           </div>
@@ -69,6 +77,7 @@
               id="floatingPassword"
               placeholder="9871829213"
               name="phoneNumber"
+              required
             />
             <label for="floatingPassword">Phone Number</label>
           </div>
@@ -91,6 +100,7 @@
               aria-label="Default select example"
               id="department"
               name="department"
+              required
             >
               <option value="Engineering" selected>Engineering</option>
               <option value="Marketing">Marketing</option>
@@ -107,6 +117,7 @@
               id="floatingPassword"
               placeholder="e.g Senior Software Engineer"
               name="designation"
+              required
             />
             <label for="floatingPassword">Designation</label>
           </div>
@@ -121,6 +132,7 @@
               aria-label="Default select example"
               id="employmentType"
               name="employmentType"
+              required
             >
               <option value="Full-Time" selected>Full-Time</option>
               <option value="Part-Time">Part-Time</option>
@@ -134,6 +146,7 @@
               id="joiningDate"
               placeholder="HD101"
               name="joiningDate"
+              required
             />
             <label for="joiningDate">Joining Date</label>
           </div>
@@ -155,6 +168,7 @@
               id="floatingInput"
               placeholder="100000"
               name="baseSalary"
+              required
             />
             <label for="floatingInput">Base Salary</label>
           </div>
@@ -201,9 +215,9 @@
             />
             <label for="floatingPassword">Tax Deduction</label>
           </div>
-          <div class="form-floating mb-3 col-sm-4">
+          <!-- <div class="form-floating mb-3 col-sm-4">
             <p>Net Salary:</p>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -222,6 +236,7 @@
               id="floatingInput"
               placeholder="HDFC"
               name="bankName"
+              required
             />
             <label for="floatingInput">Bank Name</label>
           </div>
@@ -232,6 +247,7 @@
               id="floatingPassword"
               placeholder="1652576212878"
               name="accountNumber"
+              required
             />
             <label for="floatingPassword">Account Number</label>
           </div>
@@ -242,6 +258,7 @@
               id="floatingInput"
               placeholder="HD101"
               name="IFSC"
+              required
             />
             <label for="floatingInput">IFSC</label>
           </div>
@@ -249,9 +266,9 @@
       </div>
 
       <div class="btn-div mx-5">
-          <button class="btn btn-primary mt-4 px-4" type="submit">
-            <i class="fa-solid fa-user-plus"></i> &nbsp;Add Employee
-          </button>
+        <button class="btn btn-primary mt-4 px-4" type="submit">
+          <i class="fa-solid fa-user-plus"></i> &nbsp;Add Employee
+        </button>
       </div>
     </div>
   </form>
